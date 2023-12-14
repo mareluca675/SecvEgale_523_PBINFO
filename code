@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, x[10001], i, secv = 1, secvmax = 0, imin, imax, p, q;
+    
+    cin >> n;
+    
+    for(i = 1; i <= n; i ++)
+    {
+        cin >> x[i];
+    }
+    
+    for(i = 1; i <= n; i ++)
+    {
+        secv = 1;
+        bool first = true;
+        
+        while(x[i] == x[i + 1])
+        {
+            if(first == true)
+            {
+                imin = i;
+                first = false;
+            }
+            
+            secv ++;
+            i ++;
+            imax = i;
+        }
+        
+        if(secv >= secvmax)
+        {
+            secvmax = secv;
+            p = imin;
+            q = imax;
+        }
+    }
+    
+    cout << p << " " << q;
+    
+    return 0;
+}
